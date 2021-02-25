@@ -4,7 +4,7 @@ This is a web application for creating and managing to do lists.
 
 ## API - ToDoApi
 
-REST API done in .NET Core framework which include the following:
+REST API done in .NET Core framework which includes the following:
 
 * Preview of to do list
 * Update of to do list & list items (including list/item reordering)
@@ -17,7 +17,7 @@ SendGrid email server provider)
 
 ## Web Client - to-do-web-app
 
-The client application is done in Angular and provide user interface which support the following:
+The client application is done in Angular and provides user interface which supports the following:
 
 * Dashboard page contains all available to do lists which you can search, delete or share. "Reminded" lists are on the top and visually different from others
 * Page for creating/editing to do list/item and adding reminder
