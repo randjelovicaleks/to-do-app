@@ -1,0 +1,43 @@
+<div class="container py-4 d-flex justify-content-center">
+    <div class="row row-cols-1">
+        <div class="card col card-size rounded rounded-3 border border-secondary">
+            <div class="card-header">   
+                <input type="text" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" [(ngModel)]="toDoList.title" (focusout)="editToDoList()">
+            </div>
+            <div class="card-body">                      
+                <div *ngFor="let toDoItem of notCompleted" dnd-droppable (onDropSuccess)="onMove(toDoList.id, $event, toDoItem)">
+                    <div [dragEnabled]="true" [dragData]="toDoItem" dnd-draggable>
+                        <app-to-do-item
+                            [toDoItem]="toDoItem"
+                            [listId]="toDoList.id"
+                            (onItemChange)="getToDoList()">
+                        </app-to-do-item>
+                    </div>                       
+                </div>               
+                <app-to-do-item
+                    [listId]="toDoList.id"
+                    (onItemChange)="getToDoList()">
+                </app-to-do-item>
+                <hr *ngIf="completed.length > 0">
+                <div *ngFor="let toDoItem of completed" dnd-droppable (onDropSuccess)="onMove(toDoList.id, $event, toDoItem)">
+                    <div [dragEnabled]="true" [dragData]="toDoItem" dnd-draggable>
+                        <app-to-do-item
+                            [toDoItem]="toDoItem"
+                            [listId]="toDoList.id"
+                            (onItemChange)="getToDoList()">
+                        </app-to-do-item>
+                    </div>  
+                </div>
+                <hr *ngIf="toDoList.id">
+                <form *ngIf="toDoList.id">
+                    <div class="mb-3">
+                        <input type="datetime-local" class="form-control" 
+                            [(ngModel)]="toDoList.reminderDateTime" name="reminderDateTime"
+                            [ngClass]="{'is-invalid': !toDoList.reminderDateTime && showValidation, 'is-valid': toDoList.reminderDateTime && showValidation}">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="addReminder()">Add reminder</button>
+                </form>          
+            </div>
+        </div>
+    </div>
+</div>

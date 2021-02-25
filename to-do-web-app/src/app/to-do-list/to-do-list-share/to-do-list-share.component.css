@@ -1,0 +1,12 @@
+.card-size {
+    min-width: 400px;
+    min-height: 400px;
+}
+
+.item-is-done {
+    text-decoration: line-through;
+}
+
+.card-title {
+    font-size: 20px;
+}

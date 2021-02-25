@@ -1,0 +1,25 @@
+<div class="container py-4">
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2">
+      <div *ngFor="let toDoList of withReminder" dnd-droppable (onDropSuccess)="onMove($event, toDoList)">
+        <div [dragData]="toDoList" [dragEnabled]="true" dnd-draggable>
+          <app-to-do-preview 
+              class="m-4"               
+              [toDoList]="toDoList"
+              (deleteToDoList)="deleteToDoList($event)"
+              (openToDoList)="openToDoList($event)">
+          </app-to-do-preview>
+        </div>
+      </div>
+      <div *ngFor="let toDoList of withoutReminder" dnd-droppable (onDropSuccess)="onMove($event, toDoList)">
+        <div [dragData]="toDoList" [dragEnabled]="true" dnd-draggable>
+          <app-to-do-preview 
+              class="m-4"               
+              [toDoList]="toDoList"
+              (deleteToDoList)="deleteToDoList($event)"
+              (openToDoList)="openToDoList($event)">
+          </app-to-do-preview>
+        </div>
+      </div> 
+    </div>
+</div>
+

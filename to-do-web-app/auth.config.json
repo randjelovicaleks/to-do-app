@@ -1,0 +1,6 @@
+{
+  "domain": "dev-iqm8brj1.eu.auth0.com",
+  "clientId": "llbNgtaKZhB34qclANdEi86JYYlycE0I",
+  "audience": "https://to-do-api",
+  "serverUrl": "https://localhost:44348/api"
+}

@@ -1,0 +1,25 @@
+.card-size {
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.card-body:hover {
+    cursor: pointer;
+}
+
+.icon {
+    color: #000;
+}
+
+.icon:hover {
+    color:#484848;
+    cursor: pointer;
+}
+
+.icon-size {
+    font-size: 22px;
+}
+
+.item-is-done {
+    text-decoration: line-through;
+}

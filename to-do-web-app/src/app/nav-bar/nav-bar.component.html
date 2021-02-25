@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">ToDo App</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="auth.isAuthenticated$ | async">
+          <a class="nav-item-custom" routerLink="/to-do-list">New to-do list</a>
+        </li>
+      </ul>
+      <span *ngIf="auth.isAuthenticated$ | async">
+        <form class="d-flex" *ngIf="router.url === '/'">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="listTitle" name="listTitle" (keyup)="searchLists()">
+        </form>
+      </span>
+      <form class="d-flex" *ngIf="(auth.isAuthenticated$ | async) === false">
+        <button class="btn btn-light" (click)="login()">Login</button>
+      </form>
+      <form class="d-flex" *ngIf="auth.user$ | async as user">
+        <div class="nav-item dropdown">
+          <button class="btn dropdown-toggle btn-light btn-size" (click)="logout()" data-bs-toggle="dropdown" aria-expanded="false">{{ user.nickname }}</button>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <button class="btn dropdown-item" (click)="logout()">Log out</button>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
